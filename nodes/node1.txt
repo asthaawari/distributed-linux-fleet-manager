@@ -1,0 +1,2 @@
+hostname=node1
+status=online
