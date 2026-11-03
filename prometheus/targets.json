@@ -8,7 +8,7 @@
     "labels": {"instance": "node2"}
   },
   {
-    "targets": ["10.97.0.144:9100"],
+    "targets": ["10.97.0.57:9100"],
     "labels": {"instance": "node3"}
   }
 ]
