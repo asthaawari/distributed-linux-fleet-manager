@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "targets": ["10.97.0.117:9100"],
+    "labels": {"instance": "node1"}
+  },
+  {
+    "targets": ["10.97.0.193:9100"],
+    "labels": {"instance": "node2"}
+  },
+  {
+    "targets": ["10.97.0.144:9100"],
+    "labels": {"instance": "node3"}
+  }
+]
