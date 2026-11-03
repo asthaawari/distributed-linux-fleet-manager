@@ -250,6 +250,8 @@ Multipass environment:
 | All three node exporters running | All nodes show UP | Passed |
 | Stop node3 node_exporter | node3 shows DOWN; node1 and node2 remain UP | Passed |
 | Restart node3 node_exporter | node3 returns to UP | Passed |
+| Stop the entire node3 VM | node3 shows DOWN; node1 and node2 remain UP | Passed |
+| Restart node3 with a new IP, update targets and database | node3 returns to UP; Flask dashboard shows all three nodes UP | Passed |
 | Remote hostname, disk usage, and uptime commands | Command output is displayed | Passed |
 
 These tests verify basic node availability monitoring, failure detection,
