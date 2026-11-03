@@ -82,12 +82,14 @@ Grafana queries Prometheus to display monitoring dashboards.
 ```text
 distributed-linux-fleet-manager/
 ├── app.py
+├── requirements.txt
 ├── README.md
 ├── .gitignore
 ├── docker-compose.yml
 └── prometheus/
     ├── prometheus.yml
-    └── targets.json
+    ├── targets.json
+    └── dashboard.json
 ```
 
 The SQLite database and generated Python files are local runtime files
@@ -122,7 +124,7 @@ Create a virtual environment and install the required packages:
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install Flask requests paramiko
+pip install -r requirements.txt
 ```
 
 If virtual environment creation fails because the venv package is missing,
@@ -237,6 +239,21 @@ using data collected by Prometheus.
 6. Open Grafana and review CPU, memory, and availability panels.
 7. Stop node_exporter on one test node and observe its status change.
 8. Restart node_exporter and verify that monitoring recovers.
+
+### Testing and Verification
+
+The following scenarios were tested successfully in the three-node
+Multipass environment:
+
+| Test | Expected result | Observed result |
+|---|---|---|
+| All three node exporters running | All nodes show UP | Passed |
+| Stop node3 node_exporter | node3 shows DOWN; node1 and node2 remain UP | Passed |
+| Restart node3 node_exporter | node3 returns to UP | Passed |
+| Remote hostname, disk usage, and uptime commands | Command output is displayed | Passed |
+
+These tests verify basic node availability monitoring, failure detection,
+recovery, and predefined remote command execution.
 
 ## 12. Security Considerations
 
