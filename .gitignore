@@ -22,3 +22,6 @@ fleet.db
 # Local backups
 *.backup
 *.bak
+
+fleet_known_hosts
+*.pre-upgrade
