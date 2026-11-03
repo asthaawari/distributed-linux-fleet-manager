@@ -18,3 +18,7 @@ fleet.db
 
 # Local logs
 *.log
+
+# Local backups
+*.backup
+*.bak
